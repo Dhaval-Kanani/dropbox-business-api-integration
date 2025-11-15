@@ -1,6 +1,6 @@
 # Dropbox Business API Reference
 
-Quick reference for the APIs implemented in this project.
+Quick reference for the 4 APIs implemented in this project (using 3 unique endpoints).
 
 ## Base URL
 ```
@@ -14,28 +14,50 @@ All requests need:
 
 ---
 
-## 1. Get Team Info
+## 1. Get Team/Organization Name
 
 **Endpoint:** `POST /team/get_info`  
 **Scope:** `team_info.read`
 
-Gets basic team information.
+Gets team/organization name.
 
 **Request:** null body
 
-**Response:**
+**Response (relevant fields):**
 ```json
 {
   "team_id": "dbtid:xxx",
-  "name": "Team Name",
-  "num_licensed_users": 10,
-  "num_provisioned_users": 5
+  "name": "Dhavalkanani90"
 }
 ```
 
 ---
 
-## 2. List Team Members
+## 2. Get Plan Type / License Assigned
+
+**Endpoint:** `POST /team/get_info`  
+**Scope:** `team_info.read`
+
+Gets license and plan information. 
+
+**Note:** This uses the same endpoint as API 1 because `/team/get_info` returns comprehensive team information including both name and license details in a single response.
+
+**Request:** null body
+
+**Response (relevant fields):**
+```json
+{
+  "team_id": "dbtid:xxx",
+  "name": "Dhavalkanani90",
+  "num_licensed_users": 5,
+  "num_provisioned_users": 1,
+  "num_used_licenses": 1
+}
+```
+
+---
+
+## 3. List All Users in Organization
 
 **Endpoint:** `POST /team/members/list_v2`  
 **Scope:** `members.read`
@@ -71,12 +93,12 @@ Lists all team members.
 
 ---
 
-## 3. Get Team Audit Log
+## 4. Fetch Sign-In / Audit Events
 
 **Endpoint:** `POST /team_log/get_events`  
 **Scope:** `events.read, sessions.list`
 
-Gets audit log events.
+Gets audit log events including sign-ins.
 
 **Request:**
 ```json
@@ -112,13 +134,14 @@ Gets audit log events.
 
 ## OAuth2 Scopes
 
-To use all APIs, request these scopes:
+To use all 4 APIs, request these scopes:
 ```
 team_info.read members.read events.read sessions.list
 ```
 
 ## Notes
 
+- APIs 1 & 2 use the same endpoint (`/team/get_info`) because it returns both team name and license information in one call
 - Team info API requires null body (not empty JSON)
 - List members supports pagination via cursor
 - Audit log events include member changes, logins, file access, etc.

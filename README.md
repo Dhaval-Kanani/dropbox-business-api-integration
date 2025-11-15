@@ -39,8 +39,9 @@ All other settings (timeouts, limits, URLs) can also be configured here.
 
 This project implements 4 Dropbox Business APIs (using 3 unique endpoints):
 
-1. **Team/Organization Name** (`/team/get_info`) - Gets team name and details
-2. **Plan Type/License Info** (`/team/get_info`) - Gets license count and plan details (same endpoint as #1)
+1. **Team/Organization Name** (`/team/get_info`) - Gets team name
+2. **Plan Type/License Info** (`/team/get_info`) - Gets license count and plan details
+   - Note: APIs 1 & 2 use the same endpoint because `/team/get_info` returns both team name and license information in a single response
 3. **List All Users** (`/team/members/list_v2`) - Shows all team members  
 4. **Audit/Sign-in Events** (`/team_log/get_events`) - Retrieves activity logs
 
