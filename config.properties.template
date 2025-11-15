@@ -1,0 +1,20 @@
+# Dropbox API Configuration Template
+# Copy this to config.properties and fill in your credentials
+
+dropbox.client.id=YOUR_CLIENT_ID_HERE
+dropbox.client.secret=YOUR_CLIENT_SECRET_HERE
+dropbox.redirect.url=https://oauth.pstmn.io/v1/callback
+
+# API Configuration
+dropbox.api.base.url=https://api.dropboxapi.com/2
+dropbox.auth.url=https://www.dropbox.com/oauth2/authorize
+dropbox.token.url=https://api.dropboxapi.com/oauth2/token
+
+# OAuth Scopes
+dropbox.scopes=team_info.read members.read events.read sessions.list
+
+# API Settings
+api.timeout.connect=10000
+api.timeout.read=10000
+api.members.limit=100
+api.events.limit=50

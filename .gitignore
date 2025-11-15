@@ -1,0 +1,37 @@
+# Compiled files
+*.class
+bin/
+
+# Configuration (keep template, ignore actual config with secrets)
+config.properties
+
+# IDE stuff
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Credentials and sensitive files
+credentials.txt
+.env
+.env.local
+*.key
+*.pem
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+temp/
+tmp/
+*.tmp
+
+# OS files
+Thumbs.db
+.DS_Store
+
+# Project-specific
+token.json
+response.txt
+debug.log
